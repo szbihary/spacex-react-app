@@ -1,0 +1,19 @@
+{
+  "name": "spacex-react-app",
+  "version": "0.1.0",
+  "description": "React app built on SpaceX api, showing history, launches and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szbihary/spacex-react-app.git"
+  },
+  "keywords": [
+    "spacex"
+  ],
+  "author": "Szabolcs Bihary",
+  "license": "ISC",
+  "homepage": "https://github.com/szbihary/spacex-react-app#readme"
+}
