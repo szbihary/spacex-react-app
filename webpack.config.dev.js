@@ -11,6 +11,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: './build',
     overlay: true,
@@ -24,7 +25,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
+        loader: {
           loader: 'babel-loader',
         },
       },
