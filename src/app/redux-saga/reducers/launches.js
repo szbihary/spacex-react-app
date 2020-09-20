@@ -1,10 +1,17 @@
 import * as types from '../actions/actionTypes';
 
-const initialState = { list: [], loading: false, error: '' };
+const initialState = {
+  list: [],
+  loading: false,
+  error: '',
+  nameFilterText: '',
+  fromDateFilter: '',
+  toDateFilter: '',
+};
 
 export default function launchesReducer(state = initialState, action) {
   switch (action.type) {
-    case types.LOAD_LAUNCHES_LOADING:
+    case types.LOAD_LAUNCHES_REQUEST:
       return { ...state, loading: true, error: '' };
     case types.LOAD_LAUNCHES_SUCCESS: {
       return {
@@ -18,6 +25,7 @@ export default function launchesReducer(state = initialState, action) {
           return {
             id: item.flight_number,
             missionName: item.mission_name,
+            missionDate: item.launch_date_utc,
             payload: {
               nationality,
               manufacturer,
@@ -30,6 +38,15 @@ export default function launchesReducer(state = initialState, action) {
     }
     case types.LOAD_LAUNCHES_ERROR: {
       return { ...state, loading: false, error: action.error };
+    }
+    case types.FILTER_MISSION_NAME: {
+      return { ...state, nameFilterText: action.value };
+    }
+    case types.FILTER_MISSION_DATE_FROM: {
+      return { ...state, fromDateFilter: action.value };
+    }
+    case types.FILTER_MISSION_DATE_TO: {
+      return { ...state, toDateFilter: action.value };
     }
     default:
       return state;

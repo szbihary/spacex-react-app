@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
-import styles from './HistoryListItem.module.scss';
+import styles from './historyListItem.module.scss';
 
 const HistoryListItem = (props) => {
   const { title, description, date, link } = props.historyItem;

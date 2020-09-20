@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actionCreators from '../../redux-saga/actions/actionCreators';
 import HistoryListItem from '../historyListItem/HistoryListItem';
+import styles from './historyPage.module.scss';
 
 class HistoryPage extends React.Component {
   render() {
     return (
-      <>
+      <div className={styles.container}>
         <h2>SpaceX History</h2>
         {this.renderItems()}
-      </>
+      </div>
     );
   }
 

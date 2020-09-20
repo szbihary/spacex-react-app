@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './LaunchItem.module.scss';
+import styles from './launchItem.module.scss';
 
 const LaunchItem = (props) => {
-  const { missionName, payload } = props.launch;
+  const { missionName, missionDate, payload } = props.launch;
   const { nationality, manufacturer, type } = payload;
+  const date = new Date(missionDate).toLocaleDateString();
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Mission name: {missionName}</div>
-      <div>
-        <b>Payload information</b>
+      <div className={styles.left}>
+        <div className={styles.title}>Mission name: {missionName}</div>
+        <div>Mission date: {date}</div>
       </div>
-      <div>Nationality: {nationality}</div>
-      <div>Manufacturer: {manufacturer}</div>
-      <div>Type: {type}</div>
+      <div className={styles.right}>
+        <div className={styles.title}>Payload information</div>
+        <div>Nationality: {nationality}</div>
+        <div>Manufacturer: {manufacturer}</div>
+        <div>Type: {type}</div>
+      </div>
     </div>
   );
 };
@@ -22,7 +26,8 @@ const LaunchItem = (props) => {
 LaunchItem.propTypes = {
   launch: PropTypes.shape({
     missionName: PropTypes.string.isRequired,
-    payload: PropTypes.object,
+    missionDate: PropTypes.string.isRequired,
+    payload: PropTypes.object.isRequired,
   }),
 };
 

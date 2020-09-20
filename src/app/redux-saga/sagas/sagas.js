@@ -22,6 +22,6 @@ function* fetchLaunches() {
 }
 
 export default function* rootSaga() {
-  yield takeLatest(types.LOAD_HISTORY_LOADING, fetchHistory);
-  yield takeLatest(types.LOAD_LAUNCHES_LOADING, fetchLaunches);
+  yield takeLatest(types.LOAD_HISTORY_REQUEST, fetchHistory);
+  yield takeLatest(types.LOAD_LAUNCHES_REQUEST, fetchLaunches);
 }

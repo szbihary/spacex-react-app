@@ -4,7 +4,7 @@ const initialState = { list: [], loading: false, error: '' };
 
 export default function historyReducer(state = initialState, action) {
   switch (action.type) {
-    case types.LOAD_HISTORY_LOADING:
+    case types.LOAD_HISTORY_REQUEST:
       return { ...state, loading: true, error: '' };
     case types.LOAD_HISTORY_SUCCESS: {
       return {
