@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 
-const initialState = { history: [], loading: false, error: '' };
+const initialState = { list: [], loading: false, error: '' };
 
 export default function historyReducer(state = initialState, action) {
   switch (action.type) {
@@ -9,7 +9,7 @@ export default function historyReducer(state = initialState, action) {
     case types.LOAD_HISTORY_SUCCESS: {
       return {
         ...state,
-        history: action.history.map((item) => ({
+        list: action.history.map((item) => ({
           title: item.title,
           description: item.details,
           date: item.event_date_utc,

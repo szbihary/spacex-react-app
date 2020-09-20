@@ -22,27 +22,29 @@ class HistoryPage extends React.Component {
     if (this.props.error) {
       return <div style={{ color: 'red' }}>ERROR: {this.props.error}</div>;
     }
-    return this.props.history.map((historyItem, index) => (
+    return this.props.list.map((historyItem, index) => (
       <HistoryListItem key={index} historyItem={historyItem} />
     ));
   }
 
   async componentDidMount() {
-    this.props.actions.loadHistory();
+    if (this.props.list.length === 0) {
+      this.props.actions.loadHistory();
+    }
   }
 }
 
 HistoryPage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
-  history: PropTypes.array,
+  list: PropTypes.array,
   actions: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
-  history: state.history,
-  loading: state.loading,
-  error: state.error,
+  list: state.history.list,
+  loading: state.history.loading,
+  error: state.history.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
