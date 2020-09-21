@@ -35,3 +35,19 @@ export function setFromDateFilter(value) {
 export function setToDateFilter(value) {
   return { type: types.FILTER_MISSION_DATE_TO, value };
 }
+
+export function loadRockets() {
+  return { type: types.LOAD_ROCKETS_REQUEST };
+}
+
+export function loadRocketsSuccess(rockets) {
+  return { type: types.LOAD_ROCKETS_SUCCESS, rockets };
+}
+
+export function loadRocketsError(error) {
+  return { type: types.LOAD_ROCKETS_ERROR, error };
+}
+
+export function setOrbitFilter(value) {
+  return { type: types.FILTER_ORBIT, value };
+}

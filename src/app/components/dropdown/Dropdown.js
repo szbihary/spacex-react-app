@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './searchBar.module.scss';
+import styles from './dropdown.module.scss';
 
-class SearchBar extends React.Component {
+class Dropdown extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -13,28 +13,33 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const options = this.props.items.map((item) => (
+      <option key={item.id} value={item.id}>
+        {item.name}
+      </option>
+    ));
     return (
       <form className={styles.form}>
         <label>
           <div className={styles.label}>{this.props.labelText}:</div>
-          <input
-            type={this.props.type}
-            className={styles.inputField}
+          <select
             value={this.props.value}
             onChange={this.handleChange}
-            placeholder="Type a filter"
-          />
+            className={styles.selectBox}
+          >
+            {options}
+          </select>
         </label>
       </form>
     );
   }
 }
 
-SearchBar.propTypes = {
-  type: PropTypes.oneOf(['text', 'date']).isRequired,
+Dropdown.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   labelText: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })),
 };
 
-export default SearchBar;
+export default Dropdown;

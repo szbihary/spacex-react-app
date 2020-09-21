@@ -7,6 +7,7 @@ const initialState = {
   nameFilterText: '',
   fromDateFilter: '',
   toDateFilter: '',
+  orbitFilter: 'all',
 };
 
 export default function launchesReducer(state = initialState, action) {
@@ -26,6 +27,7 @@ export default function launchesReducer(state = initialState, action) {
             id: item.flight_number,
             missionName: item.mission_name,
             missionDate: item.launch_date_utc,
+            rocketId: item.rocket.rocket_id,
             payload: {
               nationality,
               manufacturer,
@@ -47,6 +49,9 @@ export default function launchesReducer(state = initialState, action) {
     }
     case types.FILTER_MISSION_DATE_TO: {
       return { ...state, toDateFilter: action.value };
+    }
+    case types.FILTER_ORBIT: {
+      return { ...state, orbitFilter: action.value };
     }
     default:
       return state;

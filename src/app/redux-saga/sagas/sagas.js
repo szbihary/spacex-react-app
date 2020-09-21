@@ -21,7 +21,17 @@ function* fetchLaunches() {
   }
 }
 
+function* fetchRockets() {
+  try {
+    const history = yield Api.fetchRockets();
+    yield put(actions.loadRocketsSuccess(history));
+  } catch (e) {
+    yield put(actions.loadRocketsError(e.message));
+  }
+}
+
 export default function* rootSaga() {
   yield takeLatest(types.LOAD_HISTORY_REQUEST, fetchHistory);
   yield takeLatest(types.LOAD_LAUNCHES_REQUEST, fetchLaunches);
+  yield takeLatest(types.LOAD_ROCKETS_REQUEST, fetchRockets);
 }

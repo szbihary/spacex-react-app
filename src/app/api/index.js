@@ -1,4 +1,4 @@
-import { SPACEX_API_HISTORY_URL, SPACEX_API_LAUNCHES_URL } from '../config';
+import { SPACEX_API_HISTORY_URL, SPACEX_API_LAUNCHES_URL, SPACEX_API_ROCKETS_URL } from '../config';
 
 async function fetchData(request) {
   let json;
@@ -21,5 +21,10 @@ export const fetchHistory = async () => {
 
 export const fetchLaunches = async () => {
   const launches = await fetchData(SPACEX_API_LAUNCHES_URL);
+  return launches;
+};
+
+export const fetchRockets = async () => {
+  const launches = await fetchData(SPACEX_API_ROCKETS_URL);
   return launches;
 };

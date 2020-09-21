@@ -21,14 +21,14 @@ class HistoryPage extends React.Component {
       return <h4>Loading...</h4>;
     }
     if (this.props.error) {
-      return <div style={{ color: 'red' }}>ERROR: {this.props.error}</div>;
+      return <div className={styles.error}>ERROR: {this.props.error}</div>;
     }
     return this.props.list.map((historyItem, index) => (
       <HistoryListItem key={index} historyItem={historyItem} />
     ));
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     if (this.props.list.length === 0) {
       this.props.actions.loadHistory();
     }
