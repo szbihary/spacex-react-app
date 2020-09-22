@@ -72,7 +72,7 @@ export default class LaunchItem extends React.Component {
   }
 
   render() {
-    const { missionName, missionDate, payload } = this.props.launch;
+    const { missionName, missionDate, patch, payload } = this.props.launch;
     const { nationality, manufacturer, type } = payload;
     const date = new Date(missionDate).toLocaleDateString();
 
@@ -80,6 +80,13 @@ export default class LaunchItem extends React.Component {
       <>
         <div className={styles.container} onClick={this.toggleModal}>
           <div className={styles.left}>
+            {patch ? (
+              <img className={styles.patch} src={patch} alt={missionName} />
+            ) : (
+              'No patch found.'
+            )}
+          </div>
+          <div className={styles.center}>
             <div className={styles.title}>Mission name: {missionName}</div>
             <div>Mission date: {date}</div>
           </div>
@@ -101,6 +108,7 @@ LaunchItem.propTypes = {
     id: PropTypes.number.isRequired,
     missionName: PropTypes.string.isRequired,
     missionDate: PropTypes.string.isRequired,
+    patch: PropTypes.string,
     video: PropTypes.string,
     site: PropTypes.string,
     details: PropTypes.string,

@@ -1,15 +1,14 @@
 import React from 'react';
-import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import styles from './historyListItem.module.scss';
 
 const HistoryListItem = (props) => {
   const { title, description, date, link } = props.historyItem;
-
+  const localeDate = new Date(date).toLocaleDateString();
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
-      <Moment format="YYYY-MM-DD HH:mm">{date}</Moment>
+      <div>{localeDate}</div>
       <div>{description}</div>
       {link && (
         <a href={link} rel="noreferrer" target="_blank">

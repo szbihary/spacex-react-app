@@ -27,6 +27,7 @@ export default function launchesReducer(state = initialState, action) {
             id: item.flight_number,
             missionName: item.mission_name,
             missionDate: item.launch_date_utc,
+            patch: item.links.mission_patch_small,
             rocketId: item.rocket.rocket_id,
             rocketName: item.rocket.rocket_name,
             payload: {
