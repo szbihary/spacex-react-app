@@ -8,10 +8,10 @@ const HomePage = () => (
   <>
     <div className={styles.banner}>
       <div className={styles.appTitle}>
-        <img src={logo} className={styles.logo} />
+        <img src={logo} className={styles.logo} alt="SpaceX" />
         <span className={styles.titleSection}>React App</span>
       </div>
-      <img src={launch} className={styles.welcomeImage} />
+      <img src={launch} className={styles.welcomeImage} alt="Welcome space launch image" />
       <div className={styles.apiInfo}>
         Powered by:&nbsp;
         <a href={SPACEX_API_DESCRIPTOR} target="_blank" rel="noopener noreferrer">
