@@ -1,8 +1,8 @@
 import { SPACEX_API_HISTORY_URL, SPACEX_API_LAUNCHES_URL, SPACEX_API_ROCKETS_URL } from '../config';
 
-async function fetchData(request) {
+async function fetchData(url) {
   let json;
-  const response = await fetch(request);
+  const response = await fetch(url);
   try {
     json = await response.json();
   } catch (error) {

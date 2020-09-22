@@ -28,11 +28,18 @@ export default function launchesReducer(state = initialState, action) {
             missionName: item.mission_name,
             missionDate: item.launch_date_utc,
             rocketId: item.rocket.rocket_id,
+            rocketName: item.rocket.rocket_name,
             payload: {
               nationality,
               manufacturer,
               type,
             },
+            details: item.details ? item.details : 'No details found.',
+            site: item.launch_site.site_name_long,
+            video:
+              item.links.video_link && item.links.video_link.includes('www.youtube.com')
+                ? item.links.video_link.replace('watch?v=', 'embed/')
+                : null,
           };
         }),
         loading: false,
