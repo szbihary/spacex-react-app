@@ -42,7 +42,8 @@ Due to the short deadline, the testing, some features and performance improvemen
 
 ## Setup
 
-The project requires Node.js 10 or newer versions to be installed.
+The project requires Node.js 10 to be installed.
+For other versions please change node-sass package version before npm install according to the details here: https://www.npmjs.com/package/node-sass
 
 ### Install the dependencies
 
