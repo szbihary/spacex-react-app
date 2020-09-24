@@ -42,7 +42,7 @@ Due to the short deadline, the testing, some features and performance improvemen
 
 ## Setup
 
-The project requires Node.js version: 14.x to be installed.
+The project requires Node.js 10 or newer versions to be installed.
 
 ### Install the dependencies
 
